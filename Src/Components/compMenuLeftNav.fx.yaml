@@ -1,0 +1,164 @@
+compMenuLeftNav As CanvasComponent:
+    BurgerIconColor: =DarkGray
+    ExpandMenu: =false
+    Fill: =Transparent
+    Height: =640
+    MenuBackgroundColor: =RGBA(0, 0, 0, .7)
+    MenuColorPrimary: =DarkGoldenRod
+    MenuItems: |-
+        =Table(
+            {
+                MenuLabel: "Home",
+                MenuIcon: Icon.Home,
+                MenuScreenNavigate: App.ActiveScreen,
+                MenuID: 1,
+                SubMenu: Table()
+            },
+            {
+                MenuLabel: "My Tickets",
+                MenuIcon: Icon.Home,
+                MenuScreenNavigate: App.ActiveScreen,
+                MenuID: 2,
+                SubMenu: Table(
+                    {
+                        MenuLabel: "My Tickets",
+                        MenuIcon: Icon.Home,
+                        MenuScreenNavigate: App.ActiveScreen,
+                        MenuID: 1
+                    },
+                    {
+                        MenuLabel: "All Tickets",
+                        MenuIcon: Icon.Tag,
+                        MenuScreenNavigate: App.ActiveScreen,
+                        MenuID: 2
+                    }
+                )
+            },
+            {
+                MenuLabel: "All Tickets",
+                MenuIcon: Icon.Home,
+                MenuScreenNavigate: App.ActiveScreen,
+                MenuID: 3,
+                SubMenu: Table()
+            }
+        )
+    MenuSelectedColor: =DarkOrange
+    MenuWidth: =If(showMenu, compMenuLeftNav.OpenMenuWidth, icoBurger.Width)
+    OnReset: =Set(showMenu, compMenuLeftNav.ExpandMenu)
+    OpenMenuWidth: =300
+    Width: =compMenuLeftNav.MenuWidth
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    icoBurger As icon.Hamburger:
+        Color: =compMenuLeftNav.BurgerIconColor
+        Icon: =Icon.Hamburger
+        OnSelect: =Set(showMenu, !showMenu)
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        ZIndex: =1
+
+    galMenu As gallery.variableTemplateHeightGallery:
+        Fill: =compMenuLeftNav.MenuBackgroundColor
+        Height: =566
+        Items: =compMenuLeftNav.MenuItems
+        Layout: =Layout.Vertical
+        TemplateSize: =312
+        Visible: =showMenu
+        Width: =Parent.Width
+        Y: =69
+        ZIndex: =2
+
+        rectMenuShape As rectangle:
+            Fill: =compMenuLeftNav.MenuSelectedColor
+            Height: =40
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.MenuScreenNavigate = App.ActiveScreen
+            Width: =4
+            ZIndex: =1
+
+        icoMenu As icon.Add:
+            Color: =compMenuLeftNav.MenuColorPrimary
+            Height: =40
+            Icon: =ThisItem.MenuIcon
+            OnSelect: =Select(Parent)
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Width: =41
+            X: =4
+            ZIndex: =2
+
+        lblMenu As label:
+            Color: =compMenuLeftNav.MenuColorPrimary
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.MenuLabel
+            Width: =Parent.TemplateWidth-icoMenu.Width-rectMenuShape.Width
+            X: =45
+            ZIndex: =3
+
+        btnMenu As button:
+            Fill: =Transparent
+            Height: =lblMenu.Height+lblMenu.Y
+            HoverFill: =Transparent
+            OnSelect: =Navigate(ThisItem.MenuScreenNavigate,ScreenTransition.Cover)
+            PressedFill: =Transparent
+            Text: =""
+            Width: =Parent.TemplateWidth
+            ZIndex: =4
+
+        galSubMenu As gallery.variableTemplateHeightGallery:
+            Fill: =compMenuLeftNav.MenuBackgroundColor
+            Height: =CountRows(ThisItem.SubMenu)*50
+            Items: =ThisItem.SubMenu
+            Layout: =Layout.Vertical
+            TemplateSize: =CountRows(ThisItem.SubMenu)*50
+            Visible: =showMenu
+            Width: =Parent.Width-Self.X
+            X: =20
+            Y: =40
+            ZIndex: =5
+
+            rectSubMenuShape As rectangle:
+                Fill: =compMenuLeftNav.MenuSelectedColor
+                Height: =40
+                OnSelect: =Select(Parent)
+                Visible: =ThisItem.MenuScreenNavigate = App.ActiveScreen
+                Width: =4
+                ZIndex: =1
+
+            icoSubMenu As icon.Add:
+                Color: =compMenuLeftNav.MenuColorPrimary
+                Height: =40
+                Icon: =ThisItem.MenuIcon
+                OnSelect: =Select(Parent)
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                Width: =41
+                X: =4
+                ZIndex: =2
+
+            lblSubMenu As label:
+                Color: =compMenuLeftNav.MenuColorPrimary
+                OnSelect: =Select(Parent)
+                Text: =ThisItem.MenuLabel
+                Width: =Parent.TemplateWidth-icoMenu.Width-rectMenuShape.Width
+                X: =45
+                ZIndex: =3
+
+            bthSubMenu As button:
+                Fill: =Transparent
+                Height: =lblSubMenu.Height+lblSubMenu.Y
+                HoverFill: =Transparent
+                OnSelect: =Navigate(ThisItem.MenuScreenNavigate,ScreenTransition.Cover)
+                PressedFill: =Transparent
+                Text: =""
+                Width: =Parent.TemplateWidth
+                ZIndex: =4
+

@@ -1,0 +1,114 @@
+compHeader As CanvasComponent:
+    ApplicationLogo: ='coin-1.1s-200px'
+    AppName: ="App Name Here"
+    Fill: =compHeader.FillBackground
+    FillBackground: =DarkGray
+    ForegroundColor: =White
+    Height: =200
+    HiLightColor: =Yellow
+    NavBarFill: =LightBlue
+    NavBarForeground: =RGBA(0, 0, 0, 1)
+    ScreenName: =If(IsBlank(App.ActiveScreen.Name), "SCREEN NAME SHOULD BE HERE", App.ActiveScreen.Name)
+    WelcomeMessage: ="Welcome, " & User().FullName & "!"
+    Width: =App.DesignWidth
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    "'App Name Text' As label":
+        Color: =compHeader.HiLightColor
+        Height: =69
+        Size: =30
+        Text: =compHeader.AppName
+        Width: =335
+        X: =136
+        ZIndex: =1
+
+    Logo As image:
+        Height: =120
+        Image: =compHeader.ApplicationLogo
+        Width: =120
+        ZIndex: =2
+
+    "'Welcome Message' As label":
+        Color: =compHeader.ForegroundColor
+        Height: =69
+        Size: =20
+        Text: =compHeader.WelcomeMessage
+        Width: =335
+        X: =136
+        Y: =51
+        ZIndex: =3
+
+    "'Nav Bar Color' As rectangle":
+        BorderColor: =Transparent
+        Fill: =compHeader.NavBarFill
+        Height: =59
+        Width: =1366
+        Y: =141
+        ZIndex: =4
+
+    "'Screen Name Text' As label":
+        Color: =compHeader.NavBarForeground
+        Height: =59
+        Size: =15
+        Text: =compHeader.ScreenName
+        Width: =398
+        X: =206
+        Y: =141
+        ZIndex: =5
+
+    "'Back Icon_1' As icon.Add":
+        Color: =Transparent
+        Height: =59
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PaddingBottom: =10
+        PaddingLeft: =10
+        PaddingTop: =10
+        Width: =113
+        X: =77
+        Y: =141
+        ZIndex: =9
+
+    "'Back Group' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =9
+
+        "'Back shadow' As rectangle":
+            BorderColor: =ColorFade(Self.Fill, -5%)
+            BorderThickness: =1
+            Fill: =ColorFade(compHeader.NavBarFill, -12%)
+            Height: =50
+            OnSelect: =Back()
+            Width: =113
+            X: =77
+            Y: =145
+            ZIndex: =6
+
+        "'Back Icon' As icon.Add":
+            Color: =compHeader.NavBarForeground
+            Height: =59
+            Icon: =Icon.BackArrow
+            OnSelect: =Back()
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingTop: =10
+            Width: =58
+            X: =70
+            Y: =141
+            ZIndex: =7
+
+        "'Back Text' As label":
+            Color: =compHeader.NavBarForeground
+            OnSelect: =Back()
+            Size: =12
+            Text: ="Back"
+            Width: =62
+            X: =128
+            Y: =150
+            ZIndex: =8
+

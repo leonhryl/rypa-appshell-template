@@ -1,0 +1,268 @@
+THEMEING As screen:
+    Fill: =gblTheme.BodyBackground
+    OnVisible: |
+        =Set(
+            varShowMenu,
+            true
+        );
+        Set(
+            varShowMenu,
+            false
+        );
+
+    Button2 As button:
+        Color: =gblTheme.PrimaryDarkForecolor
+        Fill: =gblTheme.PrimaryDark
+        HoverColor: =gblTheme.SecondaryDarkForecolor
+        HoverFill: =gblTheme.SecondaryDark
+        OnSelect: |-
+            =Set(
+                gblTheme,
+                {
+                    Name: "Default Theme",
+                    PrimaryDark: ColorValue("#1A2C3F"),
+                    SecondaryDark: ColorValue("#33557C"),
+                    BodyBackground: ColorValue("#EAEEF2"),
+                    PrimaryLight: ColorValue("#D2D7E1"),
+                    SecondaryLight: ColorValue("#668796"),
+            
+                    PrimaryDarkForecolor: ColorValue("#EAEEF2"),
+                    SecondaryDarkForecolor: ColorValue("#EAEEF2"),
+                    BodyBackgroundForecolor: ColorValue("#1A2C3F"),
+                    PrimaryLightForecolor: ColorValue("#1A2C3F"),
+                    SecondaryLightForecolor: ColorValue("#EAEEF2"),
+            
+                    DefaultBorderRadius: 5
+            
+                }
+            );
+        RadiusBottomLeft: =gblTheme.DefaultBorderRadius
+        RadiusBottomRight: =gblTheme.DefaultBorderRadius
+        RadiusTopLeft: =gblTheme.DefaultBorderRadius
+        RadiusTopRight: =gblTheme.DefaultBorderRadius
+        Text: ="Set Theme"
+        Width: =415
+        X: =330
+        Y: =235
+        ZIndex: =1
+
+    Rectangle2 As rectangle:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderStyle: =BorderStyle.Dashed
+        BorderThickness: =2
+        Fill: =gblTheme.PrimaryDark
+        Height: =44
+        Width: =415
+        X: =330
+        Y: =325
+        ZIndex: =2
+
+    Rectangle2_1 As rectangle:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderStyle: =BorderStyle.Dashed
+        BorderThickness: =2
+        Fill: =gblTheme.SecondaryDark
+        Height: =44
+        Width: =415
+        X: =330
+        Y: =369
+        ZIndex: =3
+
+    Rectangle2_2 As rectangle:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderStyle: =BorderStyle.Dashed
+        BorderThickness: =2
+        Fill: =gblTheme.PrimaryLight
+        Height: =44
+        Width: =415
+        X: =330
+        Y: =457
+        ZIndex: =4
+
+    Rectangle2_3 As rectangle:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderStyle: =BorderStyle.Dashed
+        BorderThickness: =2
+        Fill: =gblTheme.SecondaryLight
+        Height: =44
+        Width: =415
+        X: =330
+        Y: =501
+        ZIndex: =5
+
+    Rectangle2_4 As rectangle:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderStyle: =BorderStyle.Dashed
+        BorderThickness: =2
+        Fill: =gblTheme.BodyBackground
+        Height: =44
+        Width: =415
+        X: =330
+        Y: =413
+        ZIndex: =6
+
+    Label2 As label:
+        Color: =gblTheme.PrimaryDarkForecolor
+        Height: =44
+        Size: =15
+        Text: ="Primary Dark"
+        Width: =415
+        X: =330
+        Y: =325
+        ZIndex: =7
+
+    Label2_1 As label:
+        Color: =gblTheme.SecondaryDarkForecolor
+        Height: =44
+        Size: =15
+        Text: ="Secondary Dark"
+        Width: =415
+        X: =330
+        Y: =369
+        ZIndex: =8
+
+    Label2_2 As label:
+        Color: =gblTheme.PrimaryLightForecolor
+        Height: =44
+        Size: =15
+        Text: ="Primary Light"
+        Width: =415
+        X: =330
+        Y: =457
+        ZIndex: =9
+
+    Label2_3 As label:
+        Color: =gblTheme.SecondaryLightForecolor
+        Height: =44
+        Size: =15
+        Text: ="Secondary Light"
+        Width: =415
+        X: =330
+        Y: =501
+        ZIndex: =10
+
+    Label2_4 As label:
+        Color: =gblTheme.BodyBackgroundForecolor
+        Height: =44
+        Size: =15
+        Text: ="Body Background"
+        Width: =415
+        X: =330
+        Y: =413
+        ZIndex: =11
+
+    Slider1 As slider:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Default: =gblTheme.DefaultBorderRadius
+        HandleSize: =20
+        Max: =20
+        OnChange: |-
+            =Set(
+                gblTheme,
+                {
+                    Name: "Default Theme",
+                    PrimaryDark: ColorValue("#1A2C3F"),
+                    SecondaryDark: ColorValue("#33557C"),
+                    BodyBackground: ColorValue("#EAEEF2"),
+                    PrimaryLight: ColorValue("#D2D7E1"),
+                    SecondaryLight: ColorValue("#668796"),
+            
+                    PrimaryDarkForecolor: ColorValue("#EAEEF2"),
+                    SecondaryDarkForecolor: ColorValue("#EAEEF2"),
+                    BodyBackgroundForecolor: ColorValue("#1A2C3F"),
+                    PrimaryLightForecolor: ColorValue("#1A2C3F"),
+                    SecondaryLightForecolor: ColorValue("#EAEEF2"),
+            
+                    DefaultBorderRadius: Self.Value
+            
+                }
+            );
+        RailFill: =gblTheme.SecondaryLight
+        ValueFill: =gblTheme.PrimaryDark
+        Width: =443
+        X: =802
+        Y: =485
+        ZIndex: =12
+
+    Button2_1 As button:
+        Color: =gblTheme.PrimaryDarkForecolor
+        Fill: =gblTheme.PrimaryDark
+        HoverColor: =gblTheme.PrimaryLightForecolor
+        HoverFill: =gblTheme.PrimaryLight
+        RadiusBottomLeft: =gblTheme.DefaultBorderRadius
+        RadiusBottomRight: =gblTheme.DefaultBorderRadius
+        RadiusTopLeft: =gblTheme.DefaultBorderRadius
+        RadiusTopRight: =gblTheme.DefaultBorderRadius
+        Text: ="Set Theme"
+        Width: =443
+        X: =330
+        Y: =583
+        ZIndex: =13
+
+    Button2_2 As button:
+        Color: =gblTheme.SecondaryDarkForecolor
+        Fill: =gblTheme.SecondaryDark
+        HoverColor: =gblTheme.SecondaryLightForecolor
+        HoverFill: =gblTheme.SecondaryLight
+        RadiusBottomLeft: =gblTheme.DefaultBorderRadius
+        RadiusBottomRight: =gblTheme.DefaultBorderRadius
+        RadiusTopLeft: =gblTheme.DefaultBorderRadius
+        RadiusTopRight: =gblTheme.DefaultBorderRadius
+        Text: ="Set Theme"
+        Width: =443
+        X: =330
+        Y: =641
+        ZIndex: =14
+
+    Button2_3 As button:
+        Color: =gblTheme.PrimaryLightForecolor
+        Fill: =gblTheme.PrimaryLight
+        HoverColor: =gblTheme.PrimaryDarkForecolor
+        HoverFill: =gblTheme.PrimaryDark
+        RadiusBottomLeft: =gblTheme.DefaultBorderRadius
+        RadiusBottomRight: =gblTheme.DefaultBorderRadius
+        RadiusTopLeft: =gblTheme.DefaultBorderRadius
+        RadiusTopRight: =gblTheme.DefaultBorderRadius
+        Text: ="Set Theme"
+        Width: =443
+        X: =802
+        Y: =583
+        ZIndex: =15
+
+    Button2_4 As button:
+        Color: =gblTheme.SecondaryLightForecolor
+        Fill: =gblTheme.SecondaryLight
+        HoverColor: =gblTheme.SecondaryDarkForecolor
+        HoverFill: =gblTheme.SecondaryDark
+        RadiusBottomLeft: =gblTheme.DefaultBorderRadius
+        RadiusBottomRight: =gblTheme.DefaultBorderRadius
+        RadiusTopLeft: =gblTheme.DefaultBorderRadius
+        RadiusTopRight: =gblTheme.DefaultBorderRadius
+        Text: ="Set Theme"
+        Width: =443
+        X: =802
+        Y: =641
+        ZIndex: =16
+
+    Header_1 As compHeader:
+        AppName: =gblAppSettings.AppName
+        Fill: =Header_1.FillBackground
+        FillBackground: =gblTheme.PrimaryDark
+        ForegroundColor: =gblTheme.PrimaryDarkForecolor
+        HiLightColor: =gblTheme.SecondaryLight
+        NavBarFill: =gblTheme.PrimaryLight
+        NavBarForeground: =gblTheme.PrimaryLightForecolor
+        ZIndex: =17
+
+    compMenuLeftNav_3 As compMenuLeftNav:
+        ExpandMenu: =varShowMenu
+        Height: =633
+        MenuBackgroundColor: =gblTheme.PrimaryDark
+        MenuColorPrimary: =gblTheme.PrimaryDarkForecolor
+        MenuItems: =colMenu
+        MenuSelectedColor: =gblTheme.SecondaryLight
+        OpenMenuWidth: =200
+        Width: =compMenuLeftNav_3.MenuWidth
+        Y: =135
+        ZIndex: =18
+

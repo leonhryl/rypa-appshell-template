@@ -1,0 +1,56 @@
+"'NEW SCREEN' As screen":
+    Fill: =gblTheme.BodyBackground
+    OnVisible: |
+        =Set(
+            varShowMenu,
+            true
+        );
+        Set(
+            varShowMenu,
+            false
+        );
+
+    Header_3 As compHeader:
+        AppName: =gblAppSettings.AppName
+        Fill: =Header_3.FillBackground
+        FillBackground: =gblTheme.PrimaryDark
+        ForegroundColor: =gblTheme.PrimaryDarkForecolor
+        HiLightColor: =gblTheme.SecondaryLight
+        NavBarFill: =gblTheme.PrimaryLight
+        NavBarForeground: =gblTheme.PrimaryLightForecolor
+
+    compMenuLeftNav_4 As compMenuLeftNav:
+        ExpandMenu: =varShowMenu
+        Height: =633
+        MenuBackgroundColor: =gblTheme.PrimaryDark
+        MenuColorPrimary: =gblTheme.PrimaryDarkForecolor
+        MenuItems: =colMenu
+        MenuSelectedColor: =gblTheme.SecondaryLight
+        OpenMenuWidth: =200
+        Width: =compMenuLeftNav_4.MenuWidth
+        Y: =135
+        ZIndex: =2
+
+    "'SPINNER GROUP_4' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =4
+
+        rectSpinner_4 As rectangle:
+            Fill: =RGBA(255, 255, 255, .75)
+            Height: =Parent.Height
+            Visible: =gblShowSpinner
+            Width: =Parent.Width
+            ZIndex: =3
+
+        imgSpinner_4 As image:
+            Height: =150
+            Image: ='Infinity-1s-200px'
+            Visible: =gblShowSpinner
+            Width: =150
+            X: =Parent.Width / 2 - Self.Width / 2
+            Y: =Parent.Height / 2 - Self.Height / 2
+            ZIndex: =5
+

@@ -1,0 +1,49 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |
+        =Set(
+            gblShowSpinner,
+            true
+        );
+        
+        
+        Set(
+            gblAppSettings,
+            {
+                AppName: "App Template",
+                AppVersion: "22.10.01"
+        
+            }
+        );
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        Set(
+            gblTheme,
+            {
+                Name: "Default Theme",
+                PrimaryDark: ColorValue("#1A2C3F"),
+                SecondaryDark: ColorValue("#33557C"),
+                BodyBackground: ColorValue("#EAEEF2"),
+                PrimaryLight: ColorValue("#D2D7E1"),
+                SecondaryLight: ColorValue("#668796"),
+                PrimaryDarkForecolor: ColorValue("#EAEEF2"),
+                SecondaryDarkForecolor: ColorValue("#EAEEF2"),
+                BodyBackgroundForecolor: ColorValue("#1A2C3F"),
+                PrimaryLightForecolor: ColorValue("#1A2C3F"),
+                SecondaryLightForecolor: ColorValue("#EAEEF2"),
+                DefaultBorderRadius: 5
+            }
+        );
+        Set(
+            gblShowSpinner,
+            false
+        );
+

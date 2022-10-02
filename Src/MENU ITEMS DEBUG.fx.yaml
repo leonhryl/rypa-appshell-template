@@ -1,0 +1,99 @@
+"'MENU ITEMS DEBUG' As screen":
+    Fill: =gblTheme.BodyBackground
+    OnVisible: |
+        =Set(
+            varShowMenu,
+            true
+        );
+        Set(
+            varShowMenu,
+            false
+        );
+
+    Button2_5 As button:
+        Color: =gblTheme.PrimaryDarkForecolor
+        Fill: =gblTheme.PrimaryDark
+        HoverColor: =gblTheme.PrimaryLightForecolor
+        HoverFill: =gblTheme.PrimaryLight
+        OnSelect: |-
+            =ClearCollect(
+                colMenu,
+                Table(
+                    {
+                        MenuLabel: "New Screen",
+                        MenuIcon: Icon.Home,
+                        MenuScreenNavigate: 'NEW SCREEN',
+                        MenuID: 1,
+                        SubMenu: Table()
+                    },
+                    {
+                        MenuLabel: "Themeing",
+                        MenuIcon: Icon.ColorPicker,
+                        MenuScreenNavigate: 'THEMEING',
+                        MenuID: 3,
+                        SubMenu: Table()
+                    },
+                    {
+                        MenuLabel: "Menu Items Debug",
+                        MenuIcon: Icon.Bug,
+                        MenuScreenNavigate: 'MENU ITEMS DEBUG',
+                        MenuID: 2,
+                        SubMenu: Table()
+                    }
+                )
+            )
+        RadiusBottomLeft: =gblTheme.DefaultBorderRadius
+        RadiusBottomRight: =gblTheme.DefaultBorderRadius
+        RadiusTopLeft: =gblTheme.DefaultBorderRadius
+        RadiusTopRight: =gblTheme.DefaultBorderRadius
+        Text: ="Apply Menu Items"
+        Width: =443
+        X: =430
+        Y: =309
+        ZIndex: =4
+
+    Header_2 As compHeader:
+        AppName: =gblAppSettings.AppName
+        Fill: =Header_2.FillBackground
+        FillBackground: =gblTheme.PrimaryDark
+        ForegroundColor: =gblTheme.PrimaryDarkForecolor
+        HiLightColor: =gblTheme.SecondaryLight
+        NavBarFill: =gblTheme.PrimaryLight
+        NavBarForeground: =gblTheme.PrimaryLightForecolor
+        ZIndex: =5
+
+    compMenuLeftNav_2 As compMenuLeftNav:
+        ExpandMenu: =varShowMenu
+        Height: =633
+        MenuBackgroundColor: =gblTheme.PrimaryDark
+        MenuColorPrimary: =gblTheme.PrimaryDarkForecolor
+        MenuItems: =colMenu
+        MenuSelectedColor: =gblTheme.SecondaryLight
+        OpenMenuWidth: =200
+        Width: =compMenuLeftNav_2.MenuWidth
+        Y: =135
+        ZIndex: =6
+
+    "'SPINNER GROUP_3' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =8
+
+        rectSpinner_3 As rectangle:
+            Fill: =RGBA(255, 255, 255, .75)
+            Height: =Parent.Height
+            Visible: =gblShowSpinner
+            Width: =Parent.Width
+            ZIndex: =7
+
+        imgSpinner_3 As image:
+            Height: =150
+            Image: ='Infinity-1s-200px'
+            Visible: =gblShowSpinner
+            Width: =150
+            X: =Parent.Width / 2 - Self.Width / 2
+            Y: =Parent.Height / 2 - Self.Height / 2
+            ZIndex: =9
+
